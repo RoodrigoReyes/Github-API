@@ -8,19 +8,19 @@ import credentials.keys as git_env
 
 class ProjectCreator:
     def create_project_folder(self, path):
-        """Crea el folder los archivos que compondran el proyecto Return: None"""
+        """Crea el folder los archivos que compondran el proyecto"""
         print(f"Creando carpeta del proyecto -> {path}\n")
         os.mkdir(path)
         time.sleep(3)
 
     def create_venv(self):
-        """Crea el entorno virtual del proyecto Return: None"""
+        """Crea el entorno virtual del proyecto"""
         print("Creando entorno virtual -> 'venv'")
         time.sleep(4)
         os.system("virtualenv venv")
 
     def activate_venv(self):
-        """Activar el entorno virtual creado por la funcion 'create_venv Return None"""
+        """Activar el entorno virtual creado por la funcion 'create_venv"""
         print("Activando entorno.... ", end="")
         time.sleep(4)
         activate_this_file = os.path.join(
@@ -34,7 +34,7 @@ class ProjectCreator:
         print("Entorno virtual creado\n")
 
     def install_dependencies(self, requirements_file):
-        """Instalacion de librerias Return None"""
+        """Instalacion de librerias"""
         print(f"Instalando paquetes desde el archivo {requirements_file}")
         os.system(f'pip install --upgrade -q -r "{requirements_file}"')
 
@@ -45,30 +45,30 @@ class ProjectCreator:
         time.sleep(3)
 
     def create_main(self):
-        """Creacion de archivo main.py Return None"""
+        """Creacion de archivo main.py"""
         print("Creando archivo main.py")
         open("main.py", "a").close()
         time.sleep(3)
 
     def create_notebook(self):
-        """Creando archivo Jupyter Notebook Return None"""
+        """Creando archivo Jupyter Notebook"""
         print("Creando archivo notebook.ipynb")
         open("notebook.ipynb", "a").close()
         time.sleep(3)
 
     def initialize_git(self):
-        """Inicializamos git para el proyecto Return None"""
+        """Inicializamos git para el proyecto"""
         os.system("git init")
         os.system("echo venv/ > .gitignore")
 
     def create_github_repo(self, name: str, description: str, private: str):
-        """Creacion de repositorio Github a traves de API Return None"""
+        """Creacion de repositorio Github a traves de API"""
         g = Github(git_env.token)
         u = g.get_user()
         u.create_repo(name, description=description, private=private)
 
     def add_git_remote(self, name: str):
-        """Inicializamos conexion remota con el proyecto creado en Github Return None"""
+        """Inicializamos conexion remota con el proyecto creado en Github"""
         name = name.replace(" ", "-")
         git_remote = (
             f"git remote add origin https://github.com/RoodrigoReyes/{name}.git"
@@ -76,13 +76,13 @@ class ProjectCreator:
         os.system(git_remote)
 
     def commit_and_push_to_github(self):
-        """Ejecutar commit y push de los archivos creados Return None"""
+        """Ejecutar commit y push de los archivos creados"""
         os.system("git add .")
         os.system('git commit -m "Initial Commit"')
         os.system("git push -u origin master")
 
     def open_visual_studio(self):
-        """Abrir Visual Studio Code Return None"""
+        """Abrir Visual Studio Code"""
         os.system("code .")
 
     def create_project(
