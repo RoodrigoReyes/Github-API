@@ -1,5 +1,3 @@
-# Proyecto Automatizado
-
 ## Descripción
 Este script Python proporciona una solución automatizada para la creación y configuración inicial de proyectos. Facilita la generación de carpetas, entornos virtuales, instalación de dependencias y configuración de repositorios GitHub. Ahorra tiempo y esfuerzo al iniciar nuevos proyectos.
 
