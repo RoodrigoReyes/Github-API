@@ -92,7 +92,11 @@ class ProjectCreator:
         private: str,
         install_default_dependencies: bool,
     ):
-        """Crea un proyecto en Github a partir de los parámetros indicados. Args: name (str): Nombre del proyecto. description (str): Descripción del proyecto. private (bool, optional): Privacidad del proyecto. Por defecto es True."""
+        """Crea un proyecto en Github a partir de los parámetros indicados.
+            Args: name (str): Nombre del proyecto.
+            description (str): Descripción del proyecto.
+            private (bool, optional): Privacidad del proyecto. Por defecto es True.
+        """
         # Path donde se creara la carpeta del proyecto
         folder_name = name.lower().replace(" ", "-")
         path = f"C:\\Users\\Rodrigo\\Documents\\Python Projects\\{folder_name}"
